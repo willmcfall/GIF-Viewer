@@ -1,6 +1,35 @@
-button,
-div,
-form,
-input {
-  margin: 10px;
+body {
+    padding: 10px;
+    background-color: lightgray;
+    font-family: 'Germania One', cursive;
 }
+
+button,div,form, input {
+    margin: 10px;
+  }
+    
+
+h1{
+    font-size: 35px;
+}
+
+h2{
+    font-size: 30px;
+}
+
+h3{
+    font-size: 25px;
+}
+
+p{
+    font-size: 20px;
+}
+
+
+.container{
+    padding: 10px;
+    background-color: white;
+}
+
+
+

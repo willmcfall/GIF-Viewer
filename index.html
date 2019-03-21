@@ -7,6 +7,11 @@
   <title>GIF Viewer</title>
 
   <!-- Loads Relevant CSS Documents -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/hover.css">
+  <link href="https://fonts.googleapis.com/css?family=Germania+One" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/mystyles.css">
 
   <!-- Loads Relevant Javascript Documents -->
@@ -18,24 +23,31 @@
 <body>
 
   <div class="container">
-    <h1>GIF Viewer</h1>
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-10">
 
-    <!-- Rendered Buttons will get Dumped Here  -->
-    <div id="buttons-view"></div>
+        <h1>GIF Viewer</h1>
 
-    <form id="gif-form">
-      <label for="gif-input">Search other GIFs</label>
-      <input type="text" id="gif-input">
-      <br>
+        <!-- Rendered Buttons will get Dumped Here  -->
+        <div id="buttons-view"></div>
 
-      <!-- Button triggers new GIF to be added -->
-      <input id="add-gif" type="submit" value="Search other GIFs">
-    </form>
+        <form id="gif-form">
+          <label for="gif-input">Search other GIFs</label>
+          <input type="text" id="gif-input">
+          <br>
 
-    <!-- GIFs will Get Dumped Here -->
-    <div id="gif-view"></div>
+          <!-- Button triggers new GIF to be added -->
+          <input id="add-gif" type="submit" value="Search other GIFs">
+        </form>
 
-
+        <!-- GIFs will Get Dumped Here -->
+        <div id="gif-view"></div>
+      </div>
+      <div class="col-sm-1">
+      </div>
+    </div>
 
   </div>
 
