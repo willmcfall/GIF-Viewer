@@ -2,20 +2,27 @@
 
 ## Overview
 
-In this assignment, you'll use the GIPHY API to make a dynamic web page that populates with gifs of your choice. To finish this task, you must call the GIPHY API and use JavaScript and jQuery to change the HTML of your site.
+This dynamic web page draws from the GIPHY API and allows the user to view batches of gifs that present basic human emotions. The gifs are presented through either the click of a button on pre-populate emotions or through the submission of additional emotions based on a user entered field.
 
 ## Specifications
 
-* App should take the topics in this array and create buttons in your HTML.
+* The web applicatin should define an initial array of human emotions and create buttons for the user to select
 
-* Try using a loop that appends a button for each string in the array.
+* The web application should use a loop that appends a button for each string in the initial array
 
-* When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
+* The web application should allow the user to click on a button which will then cause the page to grab 25 static, non-animated gif images from the GIPHY API and place them on the webpage.
 
-* When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing. Under every gif, display its rating (PG, G, so on).
+* The web application should allow the user to click on a still GIPHY image causing the gif should animate. If the user clicks the gif again, it should stop playing. 
 
-* Add a form to your page takes the value from a user input box and adds it into your topics array. Then make a function call that takes each topic in the array remakes the buttons on the page.
+* The web application should present the gif rating (PG, G, etc.) and title above the gif image.
+
+* The web application should add a form which takes a value from a user input box and adds it into the emotions array. The application should then make a function call that takes each emotion in the array and remakes the buttons on the page.
 
 * Deploy your assignment to Github Pages.
 
 ## Tools
+* HTML
+* CSS
+* Javascript
+* JQuery
+* GIPHY API - https://developers.giphy.com/docs/
