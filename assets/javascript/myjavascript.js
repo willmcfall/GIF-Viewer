@@ -91,6 +91,8 @@ $(document).ready(function() {
       var a = $("<button>");
       // Adding a class of emotion-btn to our button
       a.addClass("emotion-btn");
+      // Adding a class to allow the buttons to pulse when hovered
+      a.addClass("hvr-pulse-grow");
       // Adding a data-attribute
       a.attr("data-name", emotions[i]);
       // Providing the initial button text
