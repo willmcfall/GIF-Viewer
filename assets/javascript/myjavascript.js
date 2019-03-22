@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
 // Initial array of emotions
-var emotions = ["excited", "scared", "confused", "horny", "concerned", "enraged", "angry", "hungry", "thirsty"];
+var emotions = ["excited", "scared", "confused", "horny", "concerned", "enraged", "angry", "hungry", "thirsty", "tired", "befuddled", "constipated", "ecstatic", "evil"];
 
 // displayEmotionInfo function re-renders the HTML to display the appropriate content
 function displayEmotionInfo() {
