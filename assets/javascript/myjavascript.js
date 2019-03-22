@@ -62,11 +62,15 @@ $(document).ready(function() {
 
         // Creating an element to hold the image
         var image = $("<img>").attr("src", imgURL);
+        image.addClass("gif");
+        image.attr("animate-url", response.data[i].images.original.url);
+        image.attr("still-url", response.data[i].images.original_still.url);
 
         // Appending the image
+        
         emotionDiv.append(image);
         emotionDiv.append("<hr>");
-        emotionDiv.addClass("gif");
+        
 
         // Putting the entire movie above the previous movies
         $("#gif-view").prepend(emotionDiv);
