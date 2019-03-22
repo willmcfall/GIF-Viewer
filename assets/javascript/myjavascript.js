@@ -58,7 +58,7 @@ $(document).ready(function() {
         emotionDiv.append(pOne);
 
         // Retrieving the URL for the image
-        var imgURL = response.data[i].images.original.url;
+        var imgURL = response.data[i].images.original_still.url;
 
         // Creating an element to hold the image
         var image = $("<img>").attr("src", imgURL);
@@ -66,10 +66,10 @@ $(document).ready(function() {
         // Appending the image
         emotionDiv.append(image);
         emotionDiv.append("<hr>");
+        emotionDiv.addClass("gif");
 
         // Putting the entire movie above the previous movies
         $("#gif-view").prepend(emotionDiv);
-
       }
     });
   }
@@ -111,8 +111,20 @@ $(document).ready(function() {
     renderButtons();
   });
 
+  // function that allows stopping and starting of gifs
+  function controlGif() {
+    // ######
+    // ######
+    // ######
+    // ######
+    // ######
+  }
+
   // Adding a click event listener to all elements with a class of "emotion-btn"
   $(document).on("click", ".emotion-btn", displayEmotionInfo);
+
+  // Adding a click event listener to all buttons "emotion-btn"
+  $(document).on("click", ".gif", controlGif);
 
   // Calling the renderButtons function to display the intial buttons
   renderButtons();
