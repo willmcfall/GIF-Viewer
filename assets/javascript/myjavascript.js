@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
 // Initial array of emotions
-var emotions = ["excited", "scared", "confused", "horny", "concerned", "enraged"];
+var emotions = ["excited", "scared", "confused", "horny", "concerned", "enraged", "angry", "hungry", "thirsty"];
 
 // displayEmotionInfo function re-renders the HTML to display the appropriate content
 function displayEmotionInfo() {
@@ -18,7 +18,7 @@ function displayEmotionInfo() {
 
         console.log(response);
 
-        for (i=0; i < response.length; i++){
+        for (i=0; i < response.data.length; i++){
 
         // Creating a div to hold the emotion
         var emotionDiv = $("<div class='emotion'>");
@@ -33,7 +33,7 @@ function displayEmotionInfo() {
         emotionDiv.append(pOne);
 
         // Retrieving the URL for the image
-        var imgURL = response.data[i].embed_url;
+        var imgURL = response.data[i].images.original.url;
 
         // Creating an element to hold the image
         var image = $("<img>").attr("src", imgURL);
@@ -54,7 +54,7 @@ function renderButtons() {
 
     // Deleting the emotions prior to adding new movies
     // (this is necessary otherwise you will have repeat buttons)
-    // $("#buttons-view").empty();
+     $("#buttons-view").empty();
 
     // Looping through the array of emotions
     for (var i = 0; i < emotions.length; i++) {
