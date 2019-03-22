@@ -1,11 +1,14 @@
-// Initial array of movies
-var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+$( document ).ready(function() {
 
-// displayMovieInfo function re-renders the HTML to display the appropriate content
-function displayMovieInfo() {
+// Initial array of emotions
+var emotions = ["excited", "scared", "confused", "horny", "concerned", "enraged"];
 
-    var movie = $(this).attr("data-name");
-    var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+// displayEmotionInfo function re-renders the HTML to display the appropriate content
+function displayEmotionInfo() {
+
+    var emotions = $(this).attr("data-name");
+    var api = "LbWDM01pOQWptRVlBWG0rW9S64Ua1n6Z";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + emotions + "&api_key=" + api + "&limit=25";
 
     // Creating an AJAX call for the specific movie button being clicked
     $.ajax({
@@ -13,90 +16,81 @@ function displayMovieInfo() {
         method: "GET"
     }).then(function (response) {
 
-        // Creating a div to hold the movie
-        var movieDiv = $("<div class='movie'>");
+        console.log(response);
+
+        for (i=0; i < response.length; i++){
+
+        // Creating a div to hold the emotion
+        var emotionDiv = $("<div class='emotion'>");
 
         // Storing the rating data
-        var rating = response.Rated;
+        var rating = response.data[i].rating;
 
         // Creating an element to have the rating displayed
         var pOne = $("<p>").text("Rating: " + rating);
 
         // Displaying the rating
-        movieDiv.append(pOne);
-
-        // Storing the release year
-        var released = response.Released;
-
-        // Creating an element to hold the release year
-        var pTwo = $("<p>").text("Released: " + released);
-
-        // Displaying the release year
-        movieDiv.append(pTwo);
-
-        // Storing the plot
-        var plot = response.Plot;
-
-        // Creating an element to hold the plot
-        var pThree = $("<p>").text("Plot: " + plot);
-
-        // Appending the plot
-        movieDiv.append(pThree);
+        emotionDiv.append(pOne);
 
         // Retrieving the URL for the image
-        var imgURL = response.Poster;
+        var imgURL = response.data[i].embed_url;
 
         // Creating an element to hold the image
         var image = $("<img>").attr("src", imgURL);
 
         // Appending the image
-        movieDiv.append(image);
+        emotionDiv.append(image);
 
         // Putting the entire movie above the previous movies
-        $("#movies-view").prepend(movieDiv);
+        $("#gif-view").prepend(emotionDiv);
+        }
+
     });
 
-}
+};
 
-// Function for displaying movie data
+// Function for displaying emotion data
 function renderButtons() {
 
-    // Deleting the movies prior to adding new movies
+    // Deleting the emotions prior to adding new movies
     // (this is necessary otherwise you will have repeat buttons)
-    $("#buttons-view").empty();
+    // $("#buttons-view").empty();
 
-    // Looping through the array of movies
-    for (var i = 0; i < movies.length; i++) {
+    // Looping through the array of emotions
+    for (var i = 0; i < emotions.length; i++) {
 
         // Then dynamicaly generating buttons for each movie in the array
         // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
         var a = $("<button>");
-        // Adding a class of movie-btn to our button
-        a.addClass("movie-btn");
+        // Adding a class of emotion-btn to our button
+        a.addClass("emotion-btn");
         // Adding a data-attribute
-        a.attr("data-name", movies[i]);
+        a.attr("data-name", emotions[i]);
         // Providing the initial button text
-        a.text(movies[i]);
+        a.text(emotions[i]);
         // Adding the button to the buttons-view div
         $("#buttons-view").append(a);
-    }
-}
+    };
+};
 
-// This function handles events where a movie button is clicked
-$("#add-movie").on("click", function (event) {
+// This function handles events where an emotion button is clicked
+$("#add-gif").on("click", function (event) {
     event.preventDefault();
     // This line grabs the input from the textbox
-    var movie = $("#movie-input").val().trim();
+    var emotion = $("#gif-input").val().trim();
 
     // Adding movie from the textbox to our array
-    movies.push(movie);
+    emotions.push(emotion);
 
     // Calling renderButtons which handles the processing of our movie array
     renderButtons();
 });
 
-// Adding a click event listener to all elements with a class of "movie-btn"
-$(document).on("click", ".movie-btn", displayMovieInfo);
+// Adding a click event listener to all elements with a class of "emotion-btn"
+$(document).on("click", ".emotion-btn", displayEmotionInfo);
 
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
+
+
+});
